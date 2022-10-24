@@ -74,13 +74,13 @@ section p {
 
 .item {
     margin: 1rem;
-    font-size: 36px;
+    font-size: 27px;
 }
 
 .link:link,
 .link:visited {
     display: inline-block;
-    font-size: 3rem;
+    font-size: 1.3rem;
     font-weight: 300;
     padding: 1rem 2rem;
     color: white;
