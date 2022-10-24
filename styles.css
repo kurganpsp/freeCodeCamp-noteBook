@@ -1,77 +1,166 @@
-h1, h2, p {
-    text-align: center;
-}
+/* page styling */
 body {
-    font-family: sans-serif;
-    background-image: url(https://img-cdn.tnwcdn.com/image?fit=1280%2C720&url=https%3A%2F%2Fcdn0.tnwcdn.com%2Fwp-content%2Fblogs.dir%2F1%2Ffiles%2F2021%2F09%2FUntitled-design-14.jpg&signature=3de86691d6ab8d950654a02334fd2774);
-    padding: 20px;
-}
-h1 {
-    font-size: 30px;
-    margin-top: 0;
-    margin-bottom: 15px;
-}
-h2 {
-    font-size: 30px;
-}
-.established {
-    font-style: italic;
-}
-.menu {
-    width: 80%;
-    background-color: burlywood;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 20px;
-  max-width: 500px;
-}
-hr {
-    height: 2px;
-    background-color: brown;
-    border-color: brown;
-}
-.bottom-line {
-    margin-top: 25px;
+    background: linear-gradient(90deg,#7bed9f, #3498db);
   }
-h1, h2 {
-    font-family: Impact, serif;
-}
-.flavor, .dessert {
-    text-align: left;
-    width: 75%;
-}
-.price {
-    text-align: right;
-    width: 25%;
-}
-.item p { 
+  
+  section {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  section h1 {
+    font-size: 46px;
+    text-align: center;
+  }
+  
+  section p {
+    font-size: 26px;
+    text-align: center;
+  }
+  
+  /* hamburger */
+  .checkbox {
+    display: none;
+  }
+  
+  .button {
+    position: relative;
+    background-color: white;
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%;
+    position: fixed;
+    top: 5vh; 
+    right: 5vw; 
+    z-index: 2000;
+    box-shadow: 0 1rem 3rem black;
+    text-align: center; 
+    cursor: pointer;
+  }
+  
+  .background {
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+    position: fixed;
+    top: 5.5vh; 
+    right: 5.5vw; 
+    background-image: radial-gradient(green, black);
+    z-index: 1000;
+  
+    transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+  }
+  
+  .nav {
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: -60vw;
+    z-index: 1500;
+    opacity: 0;
+    width: 0;
+    transition: all 0.8s;
+  }
+  
+  .list {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    list-style: none;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .item {
+    margin: 1rem;
+    font-size: 36px;
+  }
+  
+  .link:link,
+  .link:visited {
     display: inline-block;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    font-size: 18px;
-}
-/* FOOTER */
-footer {
-    font-size: 14px;
-}
-a {
-color: black;  
-}
-a:visited { 
-    color: black; 
-}
-a:hover { 
-    color: brown; 
-}
-a:active { 
-    color: brown; 
-}
-.address {
-    margin-bottom: 5px;
-}
-img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: -25px;
-}
+    font-size: 3rem;
+    font-weight: 300;
+    padding: 1rem 2rem;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    background-image: linear-gradient(
+      120deg,
+      transparent 0%,
+      transparent 50%,
+      white 50%
+    );
+    background-size: 220%;
+    transition: all 0.4s;
+  }
+  
+  .link:hover,
+  .link:active {
+    color: lightgreen;
+    cursor: pointer;
+  }
+  
+  /* functionality */
+  .checkbox:checked ~ .background {
+    transform: scale(80);
+  }
+  .checkbox:checked ~ .nav {
+    opacity: 1;
+    width: 100%;
+    right: 0;
+  }
+  
+  /*  */
+  /* styling hamb ICON */
+  .icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .icon,
+  .icon::before,
+  .icon::after {
+    width: 3rem;
+    height: 2px;
+    background-color: gray;
+    display: inline-block;
+  }
+  
+  .icon::before,
+  .icon::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    transition: all 0.2s;
+  }
+  
+  .icon::before {
+    top: -0.8rem;
+  }
+  .icon::after {
+    top: 0.8rem;
+  }
+  
+  .button:hover icon:before {
+    top: -1rem;
+  }
+  .button:hover icon::after {
+    top: 1rem;
+  }
+  
+  .checkbox:checked + .button .icon {
+    background-color: transparent;
+  }
+  
+  .checkbox:checked + .button .icon::before {
+    top: 0;
+    transform: rotate(135deg);
+  }
+  .checkbox:checked + .button .icon::after {
+    top: 0;
+    transform: rotate(-135deg);
+  }
